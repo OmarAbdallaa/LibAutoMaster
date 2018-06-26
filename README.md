@@ -1,15 +1,25 @@
-Commandes à effectuer avant de lancer l'application (à la racine du projet) :
-run composer update pour télécharger le dossier vendor
-run npm install pour installer les dépendences
-run php artisan storage:link pour afficher correctement les images des fiches
-fichier .env
-copier le fichier ".env.example" se trouvant à la racine et coller la copie en la renommant ".env"
-configurer les paramètres suivant: DB_DATABASE, DB_USERNAME, DB_PASSWORD
-lancer la commande php artisan key:generate pour génerer la valeur de la clé unique du paramètre APP_KEY
-BDD MySQL
-name : libauto
-A la racine du projet, lancer la commande: php artisan migrate
-Virtualhost (conseillé)
-Sur WAMP (Vos VirtualHosts -> Gestion VirtualHost) ou autre, créer un virtualhost pointant vers le dossier public/ du projet
-Ne pas oublier de redémarrer les services une fois effectué
+### Installation Instructions
+2. Create a MySQL database for the project
+    * ```mysql -u root -p```, if using Vagrant: ```mysql -u homestead -psecret```
+    * ```create database laravelAuth;```
+    * ```\q```
+3. From the projects root run `cp .env.example .env`
+4. Configure your `.env` file
+5. Run `composer update` from the projects root folder
+6. From the projects root folder run:
+```
+php artisan vendor:publish --tag=laravelroles &&
+php artisan vendor:publish --tag=laravel2step
+```
+7. From the projects root folder run `sudo chmod -R 755 ../laravel-auth`
+8. From the projects root folder run `php artisan key:generate`
+9. From the projects root folder run `php artisan migrate`
+10. From the projects root folder run `composer dump-autoload`
+11. From the projects root folder run `php artisan db:seed`
+12. Compile the front end assets with [npm steps](#using-npm) or [yarn steps](#using-yarn).
 
+#### Build the Front End Assets with Mix
+##### Using NPM:
+1. From the projects root folder run `npm install`
+2. From the projects root folder run `npm run dev` or `npm run production`
+  * You can watch assets with `npm run watch`
