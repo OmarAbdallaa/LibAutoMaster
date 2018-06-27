@@ -15626,3 +15626,32 @@ div[data-toggle="buttons"] label.active {
     flex: 1;
     text-align: center;
 }
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 150px ;
+    border: 1px solid #08a0c9;
+    color: #39a937;
+    padding: 3px 10px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    margin-top : 5px
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown li{
+    list-style: none;
+}

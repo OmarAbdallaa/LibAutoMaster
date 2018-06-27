@@ -16,6 +16,21 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             {{-- Left Side Of Navbar --}}
             <ul class="navbar-nav mr-auto">
+
+                <div class="dropdown d-none d-sm-block">
+
+                    <a id="menu"  >
+                        <span class="navbar-toggler-icon"></span>
+                        Menu</a>
+                    <ul class="dropdown-content">
+                        <li>Home</li>
+                        <li>Home</li>
+                        <li>Home</li>
+                        <li>Home</li>
+                    </ul>
+                </div>
+
+
                 @role('admin')
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
