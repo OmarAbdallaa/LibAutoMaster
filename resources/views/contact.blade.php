@@ -2,7 +2,9 @@
 
 @section('content')
 <div class="container">
-	<h1 class="mb-2 text-center">Contact Us</h1>
+	<div class="col-md-10">
+		<h2 class="titlePage">{{ __('CONTACT') }}</h2>
+	</div>
 	
 	@if(session('message'))
 	<div class='alert alert-success'>
@@ -10,26 +12,49 @@
 	</div>
 	@endif
 	
-	<div class="col-12 col-md-6">
+	<div class="col-12 col-md-10">
 		<form class="form-horizontal" method="POST" action="/contact">
-			{{ csrf_field() }} 
+		<div class="row">
+			<div class="col">
+				{{ csrf_field() }}
+				<div class="form-group">
+					<label for="Name">Nom: </label>
+					<input type="text" class="form-control" id="name" placeholder="Votre nom" name="name" required>
+				</div>
+
+				<div class="form-group">
+					<label for="fname">Prénom: </label>
+					<input type="text" class="form-control" id="fname" placeholder="Votre prénom" name="fname" required>
+				</div>
+				<div class="form-group">
+					<label for="email">Prénom: </label>
+					<input type="email" class="form-control" id="email" placeholder="john@example.com" name="email" required>
+				</div>
+
+				<div class="form-group">
+					<label for="phone">Prénom: </label>
+					<input type="tel" class="form-control" id="phone" placeholder="0148020411" name="phone" required>
+				</div>
+			</div>
+			<div class="col">
+				<label for="fname">Motif: </label>
+				<select class=form-control>
+					<option value=un>Un</option>
+					<option value=deux>Deux</option>
+					<option value=trois>Trois</option>
+				</select>
+				<div class="form-group">
+					<label for="message">Message: </label>
+					<textarea type="text" class="form-control luna-message" id="message" placeholder="Votre message" name="message" required rows="9"></textarea>
+				</div>
+
+			</div>
+		</div>
+
+
+
 			<div class="form-group">
-			<label for="Name">Name: </label>
-			<input type="text" class="form-control" id="name" placeholder="Your name" name="name" required>
-		</div>
-
-		<div class="form-group">
-			<label for="email">Email: </label>
-			<input type="text" class="form-control" id="email" placeholder="john@example.com" name="email" required>
-		</div>
-
-		<div class="form-group">
-			<label for="message">message: </label>
-			<textarea type="text" class="form-control luna-message" id="message" placeholder="Type your messages here" name="message" required></textarea>
-		</div>
-
-			<div class="form-group">
-				<button type="submit" class="btn btn-primary" value="Send">Send</button>
+				<button type="submit" class="btn btn-primary" value="Envoyer">ENVOYER</button>
 			</div>
 		</form>
 	</div>

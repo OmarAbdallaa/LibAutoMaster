@@ -15718,6 +15718,7 @@ div[data-toggle="buttons"] label.active {
 }
 
 .titlePage {
+    margin-top: 5%;
     color: #39a937;
     text-align: center;
     font-weight: bold;
