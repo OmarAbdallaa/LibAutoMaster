@@ -16,9 +16,13 @@
 // Homepage Route
 Route::get('/', 'WelcomeController@welcome')->name('welcome');
 
+// Contact Route
 Route::get('/contact', 'ContactController@show');
 Route::post('/contact',  'ContactController@mailToAdmin'); 
 Route::get('/contact', 'ContactController@show')->name('contact');;
+
+// FAQ Route
+Route::get('/faq', 'FaqController@show')->name('faq');;
 
 // Authentication Routes
 Auth::routes();

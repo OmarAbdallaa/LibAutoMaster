@@ -24,7 +24,7 @@
                         Menu</a>
                     <ul class="dropdown-content">
                         <li><a href="{{ route('contact') }}">CONTACT</a></li>
-                        <li><a href="">FAQ</a></li>
+                        <li><a href="{{ route('faq') }}">FAQ</a></li>
                         <li><a href="{{ route('login') }}">CONNEXION</a></li>
                         <li><a href="{{ route('register') }}">INSCRIPTION</a></li>
                         <li><a href="">MES FAVORIS</a></li>
