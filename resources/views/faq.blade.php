@@ -12,11 +12,6 @@ $dsn = 'mysql:dbname=laravelauth;host=127.0.0.1';
 $user = 'root';
 $password = '';
 
-/*
-    L'utilisation des blocs try/catch autour du constructeur est toujours valide
-    même si nous définissons le ERRMODE à WARNING sachant que PDO::__construct
-    va toujours lancer une exception PDOException si la connexion échoue.
-*/
 try {
     $bdd = new PDO($dsn, $user, $password, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
 } catch (PDOException $e) {
