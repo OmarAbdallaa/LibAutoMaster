@@ -23,10 +23,10 @@
                         <span class="navbar-toggler-icon"></span>
                         Menu</a>
                     <ul class="dropdown-content">
-                        <li><a href="">CONTACT</a></li>
+                        <li><a href="{{ route('contact') }}">CONTACT</a></li>
                         <li><a href="">FAQ</a></li>
-                        <li><a href="">CONNEXION</a></li>
-                        <li><a href="">INSCRIPTION</a></li>
+                        <li><a href="{{ route('login') }}">CONNEXION</a></li>
+                        <li><a href="{{ route('register') }}">INSCRIPTION</a></li>
                         <li><a href="">MES FAVORIS</a></li>
                     </ul>
                 </div>
