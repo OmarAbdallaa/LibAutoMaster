@@ -27,6 +27,9 @@ Route::get('/faq', 'FaqController@show')->name('faq');;
 // Authentication Routes
 Auth::routes();
 
+Route::get('/favoris', 'FavorisController@show')->name('favoris');;
+
+
 // Public Routes
 Route::group(['middleware' => ['web', 'activity']], function () {
 

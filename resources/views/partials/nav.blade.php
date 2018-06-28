@@ -27,7 +27,7 @@
                         <li><a href="{{ route('faq') }}">FAQ</a></li>
                         <li><a href="{{ route('login') }}">CONNEXION</a></li>
                         <li><a href="{{ route('register') }}">INSCRIPTION</a></li>
-                        <li><a href="">MES FAVORIS</a></li>
+                        <li><a href="{{ route('favoris') }}">FAVORIS</a></li>
                     </ul>
                 </div>
 
