@@ -294,7 +294,8 @@ $_SESSION['JSON'] = $response;
     for (var i=0; i < document.getElementsByClassName("leaflet-marker-icon").length; i++) {
         document.getElementsByClassName("leaflet-marker-icon")[i].onclick = function(){
             console.log(document.getElementById('adressAutolib'))
-            console.log(document.getElementsByClassName("icon-end-black")[0].value = document.getElementById('adressAutolib').innerText)
+            setTimeout(function(){ document.getElementsByClassName("icon-end-black")[0].value = document.getElementById('adressAutolib').innerText }, 15);
+
         }
     };
 
