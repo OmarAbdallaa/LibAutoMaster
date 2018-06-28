@@ -15633,7 +15633,7 @@ div[data-toggle="buttons"] label.active {
 
 
 
-.navbar .container {
+.navbar > .container {
     margin-left: 2%;
 }
 
@@ -15697,28 +15697,28 @@ div[data-toggle="buttons"] label.active {
 }
 
 .userAccount li:first-of-type {
-<<<<<<< HEAD
     color: white;
     background: #08a0c9;
-=======
     background: #08a0c9;
 }
 
 
 .userAccount li:first-of-type .nav-link {
     color: white;
->>>>>>> 9c1c54fb7b83552705ebf1d09ecfdd3b5aac9770
 }
 
 .userAccount li:last-of-type {
     color: #08a0c9;
-<<<<<<< HEAD
     border: #08a0c9;
-=======
     border: 1px solid #08a0c9;
 }
 
 .leaflet-top {
     margin-top: 5%;
->>>>>>> 9c1c54fb7b83552705ebf1d09ecfdd3b5aac9770
+}
+
+.titlePage {
+    color: #39a937;
+    text-align: center;
+    font-weight: bold;
 }
