@@ -1,10 +1,36 @@
+<?php header("Access-Control-Allow-Origin: *");
+
+session_start();
+
+$response = file_get_contents('https://opendata.paris.fr/explore/dataset/autolib-disponibilite-temps-reel/download/?format=json&timezone=Europe/Paris');
+if ($response) {
+//    print_r($response);
+
+} else {
+    echo "la page est introuvable" . PHP_EOL;
+    die();
+}
+
+$stations = json_decode($response, TRUE);
+
+
+
+
+$_SESSION['JSON'] = $response;
+
+
+?>
 <!DOCTYPE html>
 <html class='use-all-space'>
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta charset='UTF-8'>
-    <title>TomTom JavaScript SDK - Routing instructions support</title>
+    <title>Lib'Auto</title>
     <meta name='viewport' content='width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no'/>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
     <link rel='stylesheet' type='text/css' href='sdk/map.css'/>
     <link rel='stylesheet' type='text/css' href='css/elements.css'/>
 
@@ -40,6 +66,9 @@
     <div id='map' class='use-all-space'></div>
 </div>
 <script>
+
+    var json$ = <?php echo $_SESSION['JSON']; ?>
+
     // Define your product name and version
     tomtom.setProductInfo('MapsWebSDKExamplesSelfhosted', '4.29.1-SNAPSHOT');
     var instructionMarker, groupMarkersLayer;
@@ -51,7 +80,9 @@
     var map = tomtom.L.map('map', {
         key: 'VjndxUA6O7sRRStVkF7RpXoECWiV4tVt',
         source: 'vector',
-        basePath: '/sdk'
+        basePath: '/sdk',
+        center: [48.85, 2.33],
+        zoom: 12,
     });
     map.zoomControl.setPosition('topright');
     var routingLocaleService = new tomtom.localeService();
@@ -110,6 +141,53 @@
         position: 'topleft',
         instructionGroupsCollapsed: true
     }).addTo(map);
+
+    var markerOptions = {
+        icon: tomtom.L.icon({
+            iconUrl: '/images/puce.png',
+            iconSize: [30, 34],
+            iconAnchor: [15, 34]
+        })
+    };
+
+
+    console.log(json$[1])
+
+
+
+    for(var i=0; i<json$.length; i++){
+        var indiv = json$[i];
+
+        var status;
+
+        if(indiv.fields.status === "ok"){
+            status = "open"
+        } else{
+            status = "close"
+        }
+
+        var txt = "<div>" +
+                    "<div>" +
+                        indiv.fields.public_name
+                    "</div>" +
+                  "</div>"
+
+        if(indiv.geometry !== null){
+            //console.log(indiv.geometry.coordinates)
+
+            var marker = tomtom.L.marker([indiv.geometry.coordinates[1],indiv.geometry.coordinates[0]], {
+                icon: tomtom.L.icon({
+                    iconUrl: '/images/'+status+'.png',
+                    iconSize: [12, 12],
+                    iconAnchor: [6, 6]
+                })
+            }).addTo(map);
+
+            marker.bindPopup(txt);
+        }
+
+
+    }
 
     var lastEventObject;
     // Connecting route-inputs with route-on-map widget
