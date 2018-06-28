@@ -59,8 +59,15 @@ $_SESSION['JSON'] = $response;
             margin-left: 10px;
         }
     </style>
+
+
+
+
+
 </head>
 <body class='use-all-space'>
+
+
 @include('partials.nav')
 <div class='map-container use-all-space'>
     <div id='map' class='use-all-space'></div>
@@ -301,5 +308,6 @@ $_SESSION['JSON'] = $response;
 
 
 </script>
+<script src="{{ mix('/js/app.js') }}"></script>
 </body>
 </html>
