@@ -16,6 +16,10 @@
 // Homepage Route
 Route::get('/', 'WelcomeController@welcome')->name('welcome');
 
+Route::get('/contact', 'ContactController@show');
+Route::post('/contact',  'ContactController@mailToAdmin'); 
+Route::get('/contact', 'ContactController@show')->name('contact');;
+
 // Authentication Routes
 Auth::routes();
 
