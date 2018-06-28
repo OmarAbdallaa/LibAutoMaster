@@ -15696,9 +15696,11 @@ div[data-toggle="buttons"] label.active {
 }
 
 .userAccount li:first-of-type {
-    
+    color: white;
+    background: #08a0c9;
 }
 
 .userAccount li:last-of-type {
-
+    color: #08a0c9;
+    border: #08a0c9;
 }
