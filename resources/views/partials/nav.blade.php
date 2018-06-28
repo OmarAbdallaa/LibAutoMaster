@@ -23,10 +23,11 @@
                         <span class="navbar-toggler-icon"></span>
                         Menu</a>
                     <ul class="dropdown-content">
-                        <li>Home</li>
-                        <li>Home</li>
-                        <li>Home</li>
-                        <li>Home</li>
+                        <li><a href="">CONTACT</a></li>
+                        <li><a href="">FAQ</a></li>
+                        <li><a href="">CONNEXION</a></li>
+                        <li><a href="">INSCRIPTION</a></li>
+                        <li><a href="">MES FAVORIS</a></li>
                     </ul>
                 </div>
 
@@ -74,7 +75,7 @@
                 @endrole
             </ul>
             {{-- Right Side Of Navbar --}}
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ml-auto userAccount">
                 {{-- Authentication Links --}}
                 @guest
                     <li><a class="nav-link" href="{{ route('login') }}">{{ trans('titles.login') }}</a></li>
