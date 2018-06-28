@@ -159,17 +159,18 @@ $_SESSION['JSON'] = $response;
         var indiv = json$[i];
 
         var status;
+        var legende;
 
         if(indiv.fields.status === "ok"){
             status = "open"
         } else{
             status = "close"
+            legende = "Stations fermée";
         }
 
-        var txt = "<div>" +
-                    "<div>" +
-                        indiv.fields.public_name
-                    "</div>" +
+        var txt = "<div class='popup'>" +
+                    "<div> "+ indiv.fields.address +" </div>" +
+                    "<div> "+ indiv.fields.postal_code + " " + indiv.fields.city +" </div><hr>" +
                   "</div>"
 
         if(indiv.geometry !== null){
