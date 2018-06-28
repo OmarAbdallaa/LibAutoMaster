@@ -23,6 +23,9 @@ Route::get('/contact', 'ContactController@show')->name('contact');;
 // Authentication Routes
 Auth::routes();
 
+Route::get('/favoris', 'FavorisController@show')->name('favoris');;
+
+
 // Public Routes
 Route::group(['middleware' => ['web', 'activity']], function () {
 

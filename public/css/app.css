@@ -15717,9 +15717,34 @@ div[data-toggle="buttons"] label.active {
     margin-top: 5%;
 }
 
+
+.form-group > label {
+    color: #39a937;
+}
 .titlePage {
     margin-top: 5%;
-    color: #39a937;
+    color: #08a0c9;
     text-align: center;
     font-weight: bold;
+}
+
+.subTitle {
+    color: #08a0c9;
+    padding-top: 5%;
+}
+
+.card-text {
+    font-style: italic;
+}
+
+.fromTo {
+    color: #39a937;
+    font-weight: bold;
+    font-style: normal;
+}
+
+.btn-primary {
+    border-radius: 0;
+    background: #08a0c9;
+    border: none;
 }
