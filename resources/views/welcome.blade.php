@@ -159,18 +159,21 @@ $_SESSION['JSON'] = $response;
         var indiv = json$[i];
 
         var status;
+        var legende = null;
 
         if(indiv.fields.status === "ok"){
             status = "open"
+            legende = "<div>Voitures disponibles : "+indiv.fields.cars+" </div> <div>Places disponibles : "+indiv.fields.charge_slots+" </div>"
         } else{
             status = "close"
+            legende = "Station fermée";
         }
 
-        var txt = "<div>" +
-                    "<div>" +
-                        indiv.fields.public_name
-                    "</div>" +
-                  "</div>"
+        var txt = "<div class='popup'>" +
+                    "<div id='adressAutolib'><div> "+ indiv.fields.address +"&nbsp;</div>" +
+                    "<div> "+ indiv.fields.postal_code + " " + indiv.fields.city +" </div></div><hr>" +
+                  legende +
+            "</div>"
 
         if(indiv.geometry !== null){
             //console.log(indiv.geometry.coordinates)
@@ -286,6 +289,15 @@ $_SESSION['JSON'] = $response;
             routeOnMapView.draw(lastEventObject.points);
         }
     });
+
+
+    for (var i=0; i < document.getElementsByClassName("leaflet-marker-icon").length; i++) {
+        document.getElementsByClassName("leaflet-marker-icon")[i].onclick = function(){
+            console.log(document.getElementById('adressAutolib'))
+            console.log(document.getElementsByClassName("icon-end-black")[0].value = document.getElementById('adressAutolib').innerText)
+        }
+    };
+
 
 </script>
 </body>
