@@ -39,9 +39,9 @@
 			<div class="col">
 				<label for="fname">Motif: </label>
 				<select class=form-control>
-					<option value=un>Un</option>
-					<option value=deux>Deux</option>
-					<option value=trois>Trois</option>
+					<option value=un>Réclamation</option>
+					<option value=deux>Suggestion / FAQ</option>
+					<option value=trois>Demande d'information</option>
 				</select>
 				<div class="form-group">
 					<label for="message">Message: </label>

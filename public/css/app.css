@@ -15733,15 +15733,16 @@ div[data-toggle="buttons"] label.active {
     padding-top: 5%;
 }
 
+.fromTo {
+  color: #39a937;
+  font-weight: bold;
+  font-style: normal;
+}
+
 .card-text {
     font-style: italic;
 }
 
-.fromTo {
-    color: #39a937;
-    font-weight: bold;
-    font-style: normal;
-}
 
 .btn-primary {
     border-radius: 0;

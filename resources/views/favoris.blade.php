@@ -22,8 +22,8 @@
                         <div class="card col-md-3">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $data->nomfavoris}}</h5>
-                                <p class="card-text"><span class="fromTo">DE:  {{ $data->adressedepart}} </span></p>
-                                <p class="card-text"><span class="fromTo">A:  {{ $data->adressearriver}} </span></p>
+                                <p class="card-text"><span class="fromTo">DE:</span> {{ $data->adressedepart}} </p>
+                                <p class="card-text"><span class="fromTo">A:</span> {{ $data->adressearriver}} </p>
                                 <a href="#" class="btn btn-primary">Y ALLER</a>
                             </div>
                         </div>

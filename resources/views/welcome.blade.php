@@ -58,6 +58,14 @@ $_SESSION['JSON'] = $response;
             flex: auto;
             margin-left: 10px;
         }
+
+        .addFav {
+            position: absolute;
+            top: 14%;
+            left: 15%;
+            z-index: 300000;
+            display: none;
+        }
     </style>
 
 
@@ -67,9 +75,9 @@ $_SESSION['JSON'] = $response;
 </head>
 <body class='use-all-space'>
 
-
 @include('partials.nav')
 <div class='map-container use-all-space'>
+    <button class="btn btn-primary addFav" id="addFav" type="submit">Ajouter au favoris</button>
     <div id='map' class='use-all-space'></div>
 </div>
 <script>
@@ -216,6 +224,8 @@ $_SESSION['JSON'] = $response;
         routeInstructionsInstance.updateGuidanceData(eventObject.instructions);
 
         console.log(eventObject)
+
+        document.getElementById('addFav').style.display='block';
 
     });
 

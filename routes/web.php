@@ -44,6 +44,9 @@ Route::group(['middleware' => ['web', 'activity']], function () {
     // FAQ Route
     Route::get('/faq', 'FaqController@show')->name('faq');
 
+    //  Homepage Route - Redirect based on user role is in controller.
+    Route::get('/favoris', 'FavorisController@show')->name('favoris');
+    Route::get('/home', ['as' => 'public.home',   'uses' => 'UserController@index']);
     // Contact Route
     Route::get('/contact', 'ContactController@show');
     Route::post('/contact',  'ContactController@mailToAdmin');
