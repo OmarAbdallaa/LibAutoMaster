@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use jeremykenedy\LaravelRoles\Traits\HasRoleAndPermission;
+use App\Notifications\PasswordReset;
 
 class User extends Authenticatable
 {
@@ -112,4 +113,10 @@ class User extends Authenticatable
     {
         return $this->profiles()->detach($profile);
     }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new PasswordReset($token));
+    }
+
 }

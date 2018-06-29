@@ -214,6 +214,9 @@ $_SESSION['JSON'] = $response;
     // Connecting route-on-map with route-instructions widget
     routeOnMapView.on(routeOnMapView.Events.RouteChanged, function(eventObject) {
         routeInstructionsInstance.updateGuidanceData(eventObject.instructions);
+
+        console.log(eventObject)
+
     });
 
     // Update search inputs when the user change the route dragging the markers over the map
@@ -300,8 +303,9 @@ $_SESSION['JSON'] = $response;
 
     for (var i=0; i < document.getElementsByClassName("leaflet-marker-icon").length; i++) {
         document.getElementsByClassName("leaflet-marker-icon")[i].onclick = function(){
+            document.getElementsByClassName("icon-end-black")[0].value ="";
             console.log(document.getElementById('adressAutolib'))
-            setTimeout(function(){ document.getElementsByClassName("icon-end-black")[0].value = document.getElementById('adressAutolib').innerText }, 15);
+            setTimeout(function(){ document.getElementsByClassName("icon-end-black")[0].value = document.getElementById('adressAutolib').innerText }, 500);
 
         }
     };

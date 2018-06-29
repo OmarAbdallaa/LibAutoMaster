@@ -483,7 +483,7 @@ div.leaflet-container .leaflet-control-zoomslider {
 .modal {
     background: rgba(80,80,80,0.9);
 }
-
+F
 .modal .modal-body a {
     color: #137AAA
 }
@@ -513,4 +513,8 @@ div.leaflet-container .leaflet-control-zoomslider {
 
 .modal .modal-footer form {
     display: inline;
+}
+
+.leaflet-control-route-instructions{
+    max-height: 500px !important;
 }

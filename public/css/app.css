@@ -15748,3 +15748,12 @@ div[data-toggle="buttons"] label.active {
     background: #08a0c9;
     border: none;
 }
+
+li{
+  list-style: none;
+}
+
+#navbarDropdown{
+  display:flex;
+  align-items: center;
+}

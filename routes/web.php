@@ -16,18 +16,12 @@
 // Homepage Route
 Route::get('/', 'WelcomeController@welcome')->name('welcome');
 
-// Contact Route
-Route::get('/contact', 'ContactController@show');
-Route::post('/contact',  'ContactController@mailToAdmin'); 
-Route::get('/contact', 'ContactController@show')->name('contact');;
 
-// FAQ Route
-Route::get('/faq', 'FaqController@show')->name('faq');;
 
 // Authentication Routes
 Auth::routes();
 
-Route::get('/favoris', 'FavorisController@show')->name('favoris');;
+
 
 
 // Public Routes
@@ -46,6 +40,15 @@ Route::group(['middleware' => ['web', 'activity']], function () {
 
     // Route to for user to reactivate their user deleted account.
     Route::get('/re-activate/{token}', ['as' => 'user.reactivate', 'uses' => 'RestoreUserController@userReActivate']);
+
+    // FAQ Route
+    Route::get('/faq', 'FaqController@show')->name('faq');
+
+    // Contact Route
+    Route::get('/contact', 'ContactController@show');
+    Route::post('/contact',  'ContactController@mailToAdmin');
+    Route::get('/contact', 'ContactController@show')->name('contact');
+
 });
 
 // Registered and Activated User Routes
@@ -59,8 +62,8 @@ Route::group(['middleware' => ['auth', 'activated', 'activity']], function () {
 // Registered and Activated User Routes
 Route::group(['middleware' => ['auth', 'activated', 'activity', 'twostep']], function () {
 
-    //  Homepage Route - Redirect based on user role is in controller.
-    Route::get('/home', ['as' => 'public.home',   'uses' => 'UserController@index']);
+    Route::get('/favoris', 'FavorisController@show')->name('favoris');
+
 
     // Show users profile - viewable by other users.
     Route::get('profile/{username}', [

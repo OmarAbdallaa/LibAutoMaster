@@ -17,7 +17,7 @@
             {{-- Left Side Of Navbar --}}
             <ul class="navbar-nav mr-auto">
 
-                <div class="dropdown d-none d-sm-block">
+                <li class="dropdown d-none d-md-block">
 
                     <a id="menu"  >
                         <span class="navbar-toggler-icon"></span>
@@ -25,13 +25,9 @@
                     <ul class="dropdown-content">
                         <li><a href="{{ route('contact') }}">CONTACT</a></li>
                         <li><a href="{{ route('faq') }}">FAQ</a></li>
-                        <li><a href="{{ route('login') }}">CONNEXION</a></li>
-                        <li><a href="{{ route('register') }}">INSCRIPTION</a></li>
                         <li><a href="{{ route('favoris') }}">FAVORIS</a></li>
                     </ul>
-                </div>
-
-
+                </li>
                 @role('admin')
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -75,7 +71,7 @@
                 @endrole
             </ul>
             {{-- Right Side Of Navbar --}}
-            <ul class="navbar-nav ml-auto userAccount">
+            <ul class="navbar-nav ml-auto userAccount d-none d-md-inline-flex">
                 {{-- Authentication Links --}}
                 @guest
                     <li><a class="nav-link" href="{{ route('login') }}">{{ trans('titles.login') }}</a></li>
@@ -107,6 +103,37 @@
                     </li>
                 @endguest
             </ul>
+
+
+            {{-- Pour version mobile --}}
+            <li class="d-md-none">
+                <ul class="menu-smartphone">
+                    <li><a class="dropdown-item " href="{{ route('contact') }}">Contact</a></li>
+                    <li><a class="dropdown-item " href="{{ route('faq') }}">FAQ</a></li>
+                    <li><a class="dropdown-item " href="{{ route('favoris') }}">Favoris</a></li>
+                    @guest
+                        <li><a class="dropdown-item " href="{{ route('login') }}">{{ trans('titles.login') }}</a></li>
+                        <li><a class="dropdown-item " href="{{ route('register') }}">{{ trans('titles.register') }}</a></li>
+                    @else
+                        <li>
+                            <a class="dropdown-item {{ Request::is('profile/'.Auth::user()->name, 'profile/'.Auth::user()->name . '/edit') ? 'active' : null }}" href="{{ url('/profile/'.Auth::user()->name) }}">
+                                @lang('titles.profile')
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </li>
+                    @endguest
+                </ul>
+            </li>
+
         </div>
     </div>
 </nav>
